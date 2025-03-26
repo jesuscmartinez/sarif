@@ -160,7 +160,6 @@
                     },
                     "kind": "review",
                     "level": "warning",
-                    "severity": "High",
                     "locations": [
                       {
                         "id": -1,
