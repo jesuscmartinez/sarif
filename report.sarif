@@ -171,7 +171,7 @@
                         ],
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri": "new"
+                            "uri": "test_asset_name.test_repo_name"
                           },
                           "region": {
                             "startLine": 1,
