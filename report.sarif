@@ -182,7 +182,10 @@
                     ],
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
-                    "ruleIndex": 0
+                    "ruleIndex": 0,
+                    "properties": {
+                        "severity": "high"
+                      }
                 }
             ]
         }
