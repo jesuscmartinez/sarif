@@ -159,7 +159,7 @@
                       "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious YAML configuration data, potentially leading to unauthorized access or manipulation of the threat modeling process.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit a YAML configuration as if they were a legitimate user."
                     },
                     "kind": "review",
-                    "level": "warning",
+                    "level": "High",
                     "locations": [
                       {
                         "id": -1,
