@@ -169,53 +169,20 @@
                                     "parentIndex": -1
                                 }
                             ]
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                  "uri": "core/agents/threat_model_agent.py"
+                                },
+                                "region": {
+                                  "startLine": 42,
+                                  "startColumn": 1
+                                }
+                              }
                         }
                     ],
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
                     "ruleIndex": 0
-                },
-                {
-                    "message": {
-                        "text": "Tampering with User Input\n\tAn attacker modifies the YAML configuration data submitted by a legitimate user, which could lead to incorrect threat model reports or system behavior.\n\nAttack Vector\n\tAn attacker intercepts the data flow from the user to the threat modeling process and alters the YAML configuration before it is processed."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "logicalLocations": [
-                                {
-                                    "index": 0,
-                                    "parentIndex": -1
-                                }
-                            ]
-                        }
-                    ],
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-TAMPERING",
-                    "ruleIndex": 1
-                },
-                {
-                    "message": {
-                        "text": "Repudiation of User Actions\n\tA user denies having submitted a malicious YAML configuration, leading to challenges in accountability and traceability of actions taken within the system.\n\nAttack Vector\n\tWithout proper logging mechanisms, a user can claim they did not submit a specific configuration, making it difficult to trace malicious actions back to them."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "logicalLocations": [
-                                {
-                                    "index": 0,
-                                    "parentIndex": -1
-                                }
-                            ]
-                        }
-                    ],
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-REPUDIATION",
-                    "ruleIndex": 2
                 }
             ]
         }
