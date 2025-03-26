@@ -185,7 +185,7 @@
                     "ruleId": "STRIDE-SPOOFING",
                     "ruleIndex": 0,
                     "properties": {
-                        "security-severity": "high"
+                        "security-severity": "9.0"
                       }
                 }
             ]
