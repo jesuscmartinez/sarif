@@ -13,6 +13,7 @@
                     "rules": [
                         {
                             "id": "STRIDE-SPOOFING",
+                            "shortDescription": { "text":"Spoofing"},
                             "fullDescription": {
                                 "text": "Spoofing refers to impersonating something or someone else. Attackers can spoof identities, devices, or services to gain unauthorized access."
                             },
