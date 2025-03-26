@@ -190,6 +190,42 @@
                     "partialFingerprints": {
                           "threat_model_id": "1c019809-376a-440e-9b74-d22b0d669e4e"
                     }
+                },
+                 {
+                    "message": {
+                      "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious YAML configuration data, potentially leading to unauthorized access or manipulation of the threat modeling process.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit a YAML configuration as if they were a legitimate user."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                      {
+                        "id": -1,
+                        "logicalLocations": [
+                          {
+                            "index": 0,
+                            "parentIndex": -1
+                          }
+                        ],
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "test_asset_name.test_repo_name"
+                          },
+                          "region": {
+                            "startLine": 1,
+                            "startColumn": 1
+                          }
+                        }
+                      }
+                    ],
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-SPOOFING",
+                    "ruleIndex": 0,
+                    "properties": {
+                        "security-severity": "9.0"
+                      },
+                    "partialFingerprints": {
+                          "threat_model_id": "1c019809-376a-440e-9b74-d22b0d669e4f"
+                    }
                 }
             ]
         }
