@@ -216,8 +216,8 @@
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
                     "ruleIndex": 2
-                },
-            ]
+                }
+            ],
         }
     ],
     "version": "2.1.0"
