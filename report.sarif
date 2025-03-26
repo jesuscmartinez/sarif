@@ -16,7 +16,7 @@
                             "fullDescription": {
                                 "text": "Spoofing refers to impersonating something or someone else. Attackers can spoof identities, devices, or services to gain unauthorized access."
                             },
-                            "helpUri": "See https://owasp.org/www-community/attacks/Authentication_Bypass for more details.",
+                            "helpUri": "https://owasp.org/www-community/attacks/Authentication_Bypass",
                             "name": "Spoofing"
                         },
                         {
@@ -24,7 +24,7 @@
                             "fullDescription": {
                                 "text": "Tampering involves unauthorized modification of data or code. This can result in corrupted data, malicious behavior, or unauthorized actions."
                             },
-                            "helpUri": "See https://owasp.org/www-community/attacks/Data_Tampering for more details.",
+                            "helpUri": "https://owasp.org/www-community/attacks/Data_Tampering",
                             "name": "Tampering"
                         },
                         {
@@ -32,7 +32,7 @@
                             "fullDescription": {
                                 "text": "Repudiation is the ability for users (legitimate or malicious) to deny their actions. Without proper logging and auditing, it\u2019s difficult to prove actions took place."
                             },
-                            "helpUri": "See https://owasp.org/www-project-cheat-sheets/cheatsheets/Logging_Cheat_Sheet.html for more details.",
+                            "helpUri": "https://owasp.org/www-project-cheat-sheets/cheatsheets/Logging_Cheat_Sheet.html",
                             "name": "Repudiation"
                         },
                         {
@@ -40,7 +40,7 @@
                             "fullDescription": {
                                 "text": "Information Disclosure is the unintended exposure of information to unauthorized parties. This can include data leaks, unprotected files, or insecure communication channels."
                             },
-                            "helpUri": "See https://owasp.org/www-community/attacks/Information_Leakage for more details.",
+                            "helpUri": "https://owasp.org/www-community/attacks/Information_Leakage",
                             "name": "Information Disclosure"
                         },
                         {
@@ -48,7 +48,7 @@
                             "fullDescription": {
                                 "text": "Denial of Service (DoS) makes a system or resource unavailable to its intended users. This can be due to resource exhaustion or malicious attacks aimed at disrupting service."
                             },
-                            "helpUri": "See https://owasp.org/www-community/attacks/Denial_of_Service for more details.",
+                            "helpUri": "https://owasp.org/www-community/attacks/Denial_of_Service",
                             "name": "Denial of Service"
                         },
                         {
@@ -56,7 +56,7 @@
                             "fullDescription": {
                                 "text": "Elevation of Privilege allows an attacker to gain higher access levels than intended. This can lead to unauthorized actions, such as gaining administrative control."
                             },
-                            "helpUri": "See https://owasp.org/www-community/attacks/Privilege_Escalation for more details.",
+                            "helpUri": "https://owasp.org/www-community/attacks/Privilege_Escalation",
                             "name": "Elevation of Privilege"
                         }
                     ]
