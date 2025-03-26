@@ -13,12 +13,14 @@
                     "rules": [
                         {
                             "id": "STRIDE-SPOOFING",
-                            "shortDescription": { "text":"Spoofing"},
                             "fullDescription": {
                                 "text": "Spoofing refers to impersonating something or someone else. Attackers can spoof identities, devices, or services to gain unauthorized access."
                             },
                             "helpUri": "https://owasp.org/www-community/attacks/Authentication_Bypass",
-                            "name": "Spoofing"
+                            "name": "Spoofing",
+                            "shortDescription": {
+                                "text": "SPOOFING"
+                            }
                         },
                         {
                             "id": "STRIDE-TAMPERING",
@@ -26,7 +28,10 @@
                                 "text": "Tampering involves unauthorized modification of data or code. This can result in corrupted data, malicious behavior, or unauthorized actions."
                             },
                             "helpUri": "https://owasp.org/www-community/attacks/Data_Tampering",
-                            "name": "Tampering"
+                            "name": "Tampering",
+                            "shortDescription": {
+                                "text": "TAMPERING"
+                            }
                         },
                         {
                             "id": "STRIDE-REPUDIATION",
@@ -34,7 +39,10 @@
                                 "text": "Repudiation is the ability for users (legitimate or malicious) to deny their actions. Without proper logging and auditing, it\u2019s difficult to prove actions took place."
                             },
                             "helpUri": "https://owasp.org/www-project-cheat-sheets/cheatsheets/Logging_Cheat_Sheet.html",
-                            "name": "Repudiation"
+                            "name": "Repudiation",
+                            "shortDescription": {
+                                "text": "REPUDIATION"
+                            }
                         },
                         {
                             "id": "STRIDE-INFO_DISCLOSURE",
@@ -42,7 +50,10 @@
                                 "text": "Information Disclosure is the unintended exposure of information to unauthorized parties. This can include data leaks, unprotected files, or insecure communication channels."
                             },
                             "helpUri": "https://owasp.org/www-community/attacks/Information_Leakage",
-                            "name": "Information Disclosure"
+                            "name": "Information Disclosure",
+                            "shortDescription": {
+                                "text": "INFO_DISCLOSURE"
+                            }
                         },
                         {
                             "id": "STRIDE-DOS",
@@ -50,7 +61,10 @@
                                 "text": "Denial of Service (DoS) makes a system or resource unavailable to its intended users. This can be due to resource exhaustion or malicious attacks aimed at disrupting service."
                             },
                             "helpUri": "https://owasp.org/www-community/attacks/Denial_of_Service",
-                            "name": "Denial of Service"
+                            "name": "Denial of Service",
+                            "shortDescription": {
+                                "text": "DOS"
+                            }
                         },
                         {
                             "id": "STRIDE-ELEVATION_OF_PRIVG",
@@ -58,7 +72,10 @@
                                 "text": "Elevation of Privilege allows an attacker to gain higher access levels than intended. This can lead to unauthorized actions, such as gaining administrative control."
                             },
                             "helpUri": "https://owasp.org/www-community/attacks/Privilege_Escalation",
-                            "name": "Elevation of Privilege"
+                            "name": "Elevation of Privilege",
+                            "shortDescription": {
+                                "text": "ELEVATION_OF_PRIVG"
+                            }
                         }
                     ]
                 }
@@ -66,90 +83,18 @@
             "artifacts": [
                 {
                     "contents": {
-                        "text": "{\"overview\":\"This report outlines the data flows, processes, external entities, data stores, and trust boundaries for the Agentic AI Threat Modeling system, which generates threat model reports from provided YAML configurations.\",\"external_entities\":[{\"id\":\"767e3db1-9aa5-4ca0-b3e4-5de4a53a1ce9\",\"name\":\"User\",\"description\":\"A person interacting with the system to generate threat model reports.\",\"data_flows\":[{\"id\":\"2b517cc9-2db9-49ed-8581-8f032bdbed24\",\"name\":\"User Input Flow\",\"description\":\"Data flow from the user to the threat modeling process, providing configuration details.\",\"destination_id\":\"3280d367-11bf-4326-8918-5cf851f4d4a3\",\"data_type\":\"YAML Configuration Data\",\"direction\":\"outgoing\"}]}],\"processes\":[{\"id\":\"3280d367-11bf-4326-8918-5cf851f4d4a3\",\"name\":\"Threat Modeling Process\",\"description\":\"Handles the generation of threat model reports based on user-provided YAML configurations.\",\"data_flows\":[{\"id\":\"e5c7dc67-c555-4c9c-b579-54fec7b00f26\",\"name\":\"Report Generation Flow\",\"description\":\"Data flow from the threat modeling process to the output report.\",\"destination_id\":\"50f518e3-a2b1-4d97-a84d-63cd01421b00\",\"data_type\":\"Markdown Report\",\"direction\":\"outgoing\"}],\"input_data\":[\"YAML Configuration Data\"],\"output_data\":[\"Threat Model Report\"]}],\"data_stores\":[{\"id\":\"50f518e3-a2b1-4d97-a84d-63cd01421b00\",\"name\":\"Configuration Store\",\"description\":\"Stores configuration files and generated reports for the threat modeling process.\",\"data_flows\":[{\"id\":\"0b20c49a-27a5-4601-b3b4-e7b2640b570d\",\"name\":\"Configuration Retrieval Flow\",\"description\":\"Data flow from the configuration store to the threat modeling process.\",\"destination_id\":\"3280d367-11bf-4326-8918-5cf851f4d4a3\",\"data_type\":\"YAML Configuration Data\",\"direction\":\"incoming\"}],\"data_inputs\":[\"YAML Configuration Data\"],\"data_outputs\":[\"Threat Model Report\"]}],\"trust_boundaries\":[{\"id\":\"0da84523-255a-49d7-85a6-0552531d2870\",\"name\":\"User Boundary\",\"description\":\"Separates the user interface from the backend processing components.\",\"component_ids\":[\"767e3db1-9aa5-4ca0-b3e4-5de4a53a1ce9\"]},{\"id\":\"1ed050a5-ad0d-4a9d-9492-82f04dd48751\",\"name\":\"Application Boundary\",\"description\":\"Separates the threat modeling process from external data sources and user inputs.\",\"component_ids\":[\"3280d367-11bf-4326-8918-5cf851f4d4a3\",\"50f518e3-a2b1-4d97-a84d-63cd01421b00\"]}],\"id\":\"f3ffec9d-8c48-4565-9ec2-d50fc72dbb66\",\"repository_id\":\"c23b8241-78a3-467f-80bc-aa3d24f9e5b3\",\"should_review\":[{\"file_path\":\"core/agents/threat_model_agent.py\",\"justification\":\"This file is likely central to the threat modeling process, which is a key component in the Data Flow Report.\"},{\"file_path\":\"core/services/threat_model_config.py\",\"justification\":\"This file likely manages configurations for the threat modeling process, relevant to the input data flow.\"},{\"file_path\":\"core/models/dtos/DataFlowReport.py\",\"justification\":\"This file likely defines the data structure for the Data Flow Report, which is essential for understanding the data flows.\"},{\"file_path\":\"core/agents/repo_data_flow_agent.py\",\"justification\":\"This file likely contains logic related to data flows, which is critical for understanding the system's functionality.\"},{\"file_path\":\"core/services/reports.py\",\"justification\":\"This file likely handles report generation, which is directly related to the output data flow described in the report.\"},{\"file_path\":\"core/models/dtos/ThreatModel.py\",\"justification\":\"This file likely defines the data structure for threat models, which is relevant to the output of the threat modeling process.\"},{\"file_path\":\"main.py\",\"justification\":\"This file likely contains the main application logic, which is critical for understanding the threat modeling process and its data flows.\"}],\"reviewed\":[{\"file_path\":\"Dockerfile\",\"justification\":\"Matched include rule.\"},{\"file_path\":\"README.md\",\"justification\":\"Matched include rule.\"}],\"could_review\":[{\"file_path\":\"core/agents/chat_model_manager.py\",\"justification\":\"This file may provide context on how chat models interact with the threat modeling process.\"},{\"file_path\":\"demo/juiceshop_report_o1mini.md\",\"justification\":\"Similar to the above, this documentation may provide additional context on report generation.\"},{\"file_path\":\"core/models/dtos/__init__.py\",\"justification\":\"\"},{\"file_path\":\"core/models/dtos/Threat.py\",\"justification\":\"\"},{\"file_path\":\"core/agents/repo_data_flow_agent_config.py\",\"justification\":\"\"},{\"file_path\":\"core/models/enums.py\",\"justification\":\"This file may contain enumerations that provide context for various components in the system.\"},{\"file_path\":\"demo/juiceshop_report_gpt4omini.md\",\"justification\":\"This documentation may provide insights into example reports generated by the system.\"},{\"file_path\":\"core/agents/agent_tools.py\",\"justification\":\"\"},{\"file_path\":\"core/agents/threat_model_data_agent.py\",\"justification\":\"\"},{\"file_path\":\"core/models/dtos/Asset.py\",\"justification\":\"This file may define assets relevant to threat modeling, providing supplementary information.\"},{\"file_path\":\"core/models/dtos/Repository.py\",\"justification\":\"This file may define repository structures that could be relevant to understanding data flows.\"},{\"file_path\":\"core/models/dtos/File.py\",\"justification\":\"\"},{\"file_path\":\"core/services/threat_model_services.py\",\"justification\":\"\"},{\"file_path\":\"core/models/dtos/Task.py\",\"justification\":\"\"}],\"should_not_review\":[{\"file_path\":\"demo/demo_fast.cast\",\"justification\":\"This file appears to be a demo asset and does not contain relevant information for data flows.\"},{\"file_path\":\".git/hooks/pre-merge-commit.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-commit.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".github/workflows/test.yml\",\"justification\":\"This file is related to testing workflows and does not contain relevant information for data flows.\"},{\"file_path\":\".git/hooks/pre-applypatch.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-receive.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/refs/heads/main\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/logs/refs/remotes/origin/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/post-update.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/fsmonitor-watchman.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"core/models/__init__.py\",\"justification\":\"This file typically initializes a package and does not contain relevant information for data flows.\"},{\"file_path\":\"demo/demo.cast\",\"justification\":\"This file appears to be a demo asset and does not contain relevant information for data flows.\"},{\"file_path\":\"requirements-dev.txt\",\"justification\":\"This file lists development dependencies and does not provide direct insight into data flows or processes.\"},{\"file_path\":\".git/config\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_threat_model_agent.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/initial_data_flow.png\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/commit-msg.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/services/test_threat_model_services.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-rebase.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/objects/pack/pack-8057014b27e3bcd5e99e60139df14a872578f024.pack\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/logs/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/applypatch-msg.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/objects/pack/pack-8057014b27e3bcd5e99e60139df14a872578f024.idx\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".pre-commit-config.yaml\",\"justification\":\"This file is related to pre-commit hooks and does not contain relevant information for data flows.\"},{\"file_path\":\".git/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/index\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/demo_fast.gif\",\"justification\":\"This file appears to be a demo asset and does not contain relevant information for data flows.\"},{\"file_path\":\".git/hooks/update.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/packed-refs\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_threat_model_data_agent.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_repo_data_flow_agent.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/juiceshop_gpt4omini_dfd.png\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"pytest.ini\",\"justification\":\"This file is related to testing configuration and is unlikely to contain relevant information for the data flow diagram.\"},{\"file_path\":\".dockerignore\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"LICENSE\",\"justification\":\"This file contains licensing information and is not relevant to data flows.\"},{\"file_path\":\".git/hooks/push-to-checkout.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/info/exclude\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/prepare-commit-msg.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"requirements.txt\",\"justification\":\"This file lists production dependencies and does not provide direct insight into data flows or processes.\"},{\"file_path\":\".git/description\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/refs/remotes/origin/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_agent_tools.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"core/services/__init__.py\",\"justification\":\"This file typically initializes a package and does not contain relevant information for data flows.\"},{\"file_path\":\".github/workflows/docker-publish-ghcr.yml\",\"justification\":\"This file is related to CI/CD workflows and does not contain relevant information for data flows.\"},{\"file_path\":\"tests/core/agents/test_chat_model_manager.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"core/__init__.py\",\"justification\":\"This file typically initializes a package and does not contain relevant information for data flows.\"},{\"file_path\":\".git/logs/refs/heads/main\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/threats.png\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".gitignore\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-push.sample\",\"justification\":\"Matched exclude rule.\"}],\"could_not_review\":[]}"
+                        "text": "{\"overview\":\"This report provides a comprehensive overview of the data flows within the Agentic AI Threat Modeling system, detailing external entities, processes, data stores, and trust boundaries identified from the provided context.\",\"external_entities\":[{\"id\":\"e74622cd-05e0-4720-b0c4-f0c718d6adbe\",\"name\":\"User\",\"description\":\"A person interacting with the system to generate threat model reports.\",\"data_flows\":[{\"id\":\"94415a0a-09f3-4481-a176-a71c8390dbe6\",\"name\":\"User Input Flow\",\"description\":\"Data flow from the user to the threat modeling process, providing configuration and asset details.\",\"destination_id\":\"9f1855dc-3f4f-476c-b2ff-27da006defcb\",\"data_type\":\"Configuration Data\",\"direction\":\"outgoing\"}]},{\"id\":\"55c5acc2-2cf0-46cc-bce0-2e65842e8ad7\",\"name\":\"Threat Model Generator\",\"description\":\"A service that generates threat models based on user input and predefined templates.\",\"data_flows\":[{\"id\":\"aa771854-6406-4373-82db-f098017c23f3\",\"name\":\"Model Generation Request\",\"description\":\"Data flow from the threat model generator to the threat modeling process, requesting model generation.\",\"destination_id\":\"9f1855dc-3f4f-476c-b2ff-27da006defcb\",\"data_type\":\"Model Request Data\",\"direction\":\"outgoing\"}]}],\"processes\":[{\"id\":\"9f1855dc-3f4f-476c-b2ff-27da006defcb\",\"name\":\"Threat Modeling Process\",\"description\":\"Handles the generation of threat model reports based on user input and configuration files.\",\"data_flows\":[{\"id\":\"3b9dc5fa-6c32-401d-8389-ed2441ddb3f8\",\"name\":\"Report Generation Flow\",\"description\":\"Data flow from the threat modeling process to the output report file.\",\"destination_id\":\"15df5911-9bc4-4f92-bcb2-136e541d52c8\",\"data_type\":\"Markdown Report\",\"direction\":\"outgoing\"}],\"input_data\":[\"Configuration Data\",\"Asset Details\"],\"output_data\":[\"Threat Model Report\"]}],\"data_stores\":[{\"id\":\"15df5911-9bc4-4f92-bcb2-136e541d52c8\",\"name\":\"Generated Reports Store\",\"description\":\"Stores generated threat model reports in Markdown format for user access.\",\"data_flows\":[{\"id\":\"2500ef21-dc51-4cab-958a-15e2e7c29702\",\"name\":\"Report Storage Flow\",\"description\":\"Data flow from the threat modeling process to the generated reports store.\",\"destination_id\":\"15df5911-9bc4-4f92-bcb2-136e541d52c8\",\"data_type\":\"Markdown Report\",\"direction\":\"outgoing\"}],\"data_inputs\":[\"Threat Model Report\"],\"data_outputs\":[\"Markdown Report\"]}],\"trust_boundaries\":[{\"id\":\"50de57fb-f75c-4b24-ab1c-a5b233105390\",\"name\":\"User Interaction Boundary\",\"description\":\"Separates user interactions from the internal processing of threat modeling.\",\"component_ids\":[\"e74622cd-05e0-4720-b0c4-f0c718d6adbe\"]},{\"id\":\"20f47e3f-e7f0-4d84-a5e5-bdb028050634\",\"name\":\"Application Processing Boundary\",\"description\":\"Separates the threat modeling process from data storage and report generation.\",\"component_ids\":[\"9f1855dc-3f4f-476c-b2ff-27da006defcb\",\"15df5911-9bc4-4f92-bcb2-136e541d52c8\"]},{\"id\":\"8d9c01a2-4dd9-498c-a047-4ff30d3beea8\",\"name\":\"Threat Model Generation Boundary\",\"description\":\"Separates the threat model generator service from the main application processes.\",\"component_ids\":[\"55c5acc2-2cf0-46cc-bce0-2e65842e8ad7\"]}],\"id\":\"93d7bbf7-ec14-468e-afa2-e4a86c187cf9\",\"repository_id\":\"86b21ed1-4a59-4b1a-a8a9-b96ede641e71\",\"should_review\":[],\"reviewed\":[{\"file_path\":\"Dockerfile\",\"justification\":\"Matched include rule.\"},{\"file_path\":\"core/services/reports.py\",\"justification\":\"Handles report generation, which is crucial for understanding the output data flow.\"},{\"file_path\":\"core/agents/repo_data_flow_agent_config.py\",\"justification\":\"This file likely contains configuration related to data flows, which is critical for understanding the data flow in the system.\"},{\"file_path\":\"core/agents/threat_model_agent.py\",\"justification\":\"Directly related to the threat modeling process, which is a key component in the data flow report.\"},{\"file_path\":\"core/models/dtos/Asset.py\",\"justification\":\"Defines assets, which are part of the input data for the threat modeling process.\"},{\"file_path\":\"core/agents/threat_model_data_agent.py\",\"justification\":\"This file likely contains logic related to the threat modeling process, which is central to the data flows described in the report.\"},{\"file_path\":\"core/models/dtos/Task.py\",\"justification\":\"This file may define data structures related to tasks, which could be relevant for the threat modeling process.\"},{\"file_path\":\"README.md\",\"justification\":\"Matched include rule.\"},{\"file_path\":\"core/models/dtos/Threat.py\",\"justification\":\"This file likely defines the data structure for threats, which is relevant to the threat modeling process.\"},{\"file_path\":\"main.py\",\"justification\":\"This file likely contains the main application logic, including the threat modeling process, which is central to the data flow.\"},{\"file_path\":\"core/models/dtos/ThreatModel.py\",\"justification\":\"Represents the threat model, which is a key output of the threat modeling process.\"},{\"file_path\":\"core/services/threat_model_services.py\",\"justification\":\"This file is likely part of the threat modeling process, which is central to the data flow report.\"},{\"file_path\":\"core/models/dtos/DataFlowReport.py\",\"justification\":\"Defines the data structure for the Data Flow Report, directly relevant to the report's content.\"},{\"file_path\":\"core/models/dtos/File.py\",\"justification\":\"This file may define data structures related to files, which could be relevant for report generation.\"},{\"file_path\":\"core/models/dtos/Repository.py\",\"justification\":\"This file may define data structures related to repositories, potentially relevant for the threat modeling process.\"},{\"file_path\":\"core/models/enums.py\",\"justification\":\"This file may contain enumerations that are relevant to the threat modeling process.\"},{\"file_path\":\"core/services/threat_model_config.py\",\"justification\":\"May contain configuration details relevant to the threat modeling process.\"},{\"file_path\":\"core/agents/repo_data_flow_agent.py\",\"justification\":\"Contains logic related to data flow agents, likely relevant to the data flows described in the report.\"}],\"could_review\":[{\"file_path\":\"demo/juiceshop_report_o1mini.md\",\"justification\":\"Similar to the other demo report, this file may offer contextual information about generated threat models.\"},{\"file_path\":\"demo/juiceshop_report_gpt4omini.md\",\"justification\":\"This file may provide supplementary information related to threat model reports, which could be relevant for understanding the output data.\"}],\"should_not_review\":[{\"file_path\":\".git/config\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_threat_model_data_agent.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"core/agents/chat_model_manager.py\",\"justification\":\"This file is likely focused on chat model management and does not appear to be relevant to the threat modeling processes or data flows.\"},{\"file_path\":\"core/services/__init__.py\",\"justification\":\"Initialization file, does not contain relevant information.\"},{\"file_path\":\".gitignore\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/applypatch-msg.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/refs/heads/main\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/packed-refs\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/demo_fast.cast\",\"justification\":\"Demo file unrelated to data flows.\"},{\"file_path\":\".git/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/index\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/logs/refs/remotes/origin/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"core/__init__.py\",\"justification\":\"Initialization file, does not contain relevant information.\"},{\"file_path\":\"demo/threats.png\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/initial_data_flow.png\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-merge-commit.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_agent_tools.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-push.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_threat_model_agent.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/refs/remotes/origin/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/demo_fast.gif\",\"justification\":\"Static asset unrelated to data flows.\"},{\"file_path\":\"core/agents/agent_tools.py\",\"justification\":\"This file likely contains implementation details that do not directly relate to the data flows or processes outlined in the Data Flow Report.\"},{\"file_path\":\".git/description\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/prepare-commit-msg.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"demo/juiceshop_gpt4omini_dfd.png\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".github/workflows/test.yml\",\"justification\":\"Related to testing workflows, not relevant to data flows.\"},{\"file_path\":\".git/hooks/update.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/commit-msg.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"pytest.ini\",\"justification\":\"This file is related to testing configuration and does not contribute to understanding the data flow.\"},{\"file_path\":\"tests/core/agents/test_repo_data_flow_agent.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/core/agents/test_chat_model_manager.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-receive.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/post-update.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/objects/pack/pack-8057014b27e3bcd5e99e60139df14a872578f024.idx\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-commit.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"core/models/__init__.py\",\"justification\":\"Initialization file, does not contain relevant information.\"},{\"file_path\":\".git/hooks/push-to-checkout.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/objects/pack/pack-8057014b27e3bcd5e99e60139df14a872578f024.pack\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"tests/services/test_threat_model_services.py\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/info/exclude\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"requirements.txt\",\"justification\":\"This file lists production dependencies and does not provide information about data flows or processes.\"},{\"file_path\":\".git/logs/HEAD\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".github/workflows/docker-publish-ghcr.yml\",\"justification\":\"Related to CI/CD workflows, not relevant to data flows.\"},{\"file_path\":\"LICENSE\",\"justification\":\"License file, not relevant to data flows.\"},{\"file_path\":\".pre-commit-config.yaml\",\"justification\":\"Configuration for pre-commit hooks, not relevant to data flows.\"},{\"file_path\":\"core/models/dtos/__init__.py\",\"justification\":\"Initialization file, does not contain relevant information.\"},{\"file_path\":\"demo/demo.cast\",\"justification\":\"Demo file unrelated to data flows.\"},{\"file_path\":\".git/hooks/fsmonitor-watchman.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-rebase.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/hooks/pre-applypatch.sample\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\"requirements-dev.txt\",\"justification\":\"This file lists development dependencies and is not directly relevant to the data flow.\"},{\"file_path\":\".dockerignore\",\"justification\":\"Matched exclude rule.\"},{\"file_path\":\".git/logs/refs/heads/main\",\"justification\":\"Matched exclude rule.\"}],\"could_not_review\":[]}"
                     },
                     "encoding": "utf-8",
                     "length": -1,
                     "location": {
                         "index": -1,
-                        "uri": "f3ffec9d-8c48-4565-9ec2-d50fc72dbb66"
+                        "uri": "93d7bbf7-ec14-468e-afa2-e4a86c187cf9"
                     },
                     "parentIndex": -1
                 }
             ],
             "language": "en-US",
-            "logicalLocations": [
-                {
-                    "fullyQualifiedName": "f3ffec9d-8c48-4565-9ec2-d50fc72dbb66.User",
-                    "index": 0,
-                    "kind": "external_entitie",
-                    "name": "User",
-                    "parentIndex": -1,
-                    "properties": {
-                        "tags": [
-                            "767e3db1-9aa5-4ca0-b3e4-5de4a53a1ce9",
-                            "A person interacting with the system to generate threat model reports.",
-                            "ExternalEntity"
-                        ]
-                    }
-                },
-                {
-                    "fullyQualifiedName": "f3ffec9d-8c48-4565-9ec2-d50fc72dbb66.Threat Modeling Process",
-                    "index": 1,
-                    "kind": "processe",
-                    "name": "Threat Modeling Process",
-                    "parentIndex": -1,
-                    "properties": {
-                        "tags": [
-                            "3280d367-11bf-4326-8918-5cf851f4d4a3",
-                            "Handles the generation of threat model reports based on user-provided YAML configurations.",
-                            "Process"
-                        ]
-                    }
-                },
-                {
-                    "fullyQualifiedName": "f3ffec9d-8c48-4565-9ec2-d50fc72dbb66.Configuration Store",
-                    "index": 2,
-                    "kind": "data_store",
-                    "name": "Configuration Store",
-                    "parentIndex": -1,
-                    "properties": {
-                        "tags": [
-                            "50f518e3-a2b1-4d97-a84d-63cd01421b00",
-                            "Stores configuration files and generated reports for the threat modeling process.",
-                            "DataStore"
-                        ]
-                    }
-                },
-                {
-                    "fullyQualifiedName": "f3ffec9d-8c48-4565-9ec2-d50fc72dbb66.User Boundary",
-                    "index": 3,
-                    "kind": "trust_boundarie",
-                    "name": "User Boundary",
-                    "parentIndex": -1,
-                    "properties": {
-                        "tags": [
-                            "0da84523-255a-49d7-85a6-0552531d2870",
-                            "Separates the user interface from the backend processing components.",
-                            "TrustBoundary"
-                        ]
-                    }
-                },
-                {
-                    "fullyQualifiedName": "f3ffec9d-8c48-4565-9ec2-d50fc72dbb66.Application Boundary",
-                    "index": 4,
-                    "kind": "trust_boundarie",
-                    "name": "Application Boundary",
-                    "parentIndex": -1,
-                    "properties": {
-                        "tags": [
-                            "1ed050a5-ad0d-4a9d-9492-82f04dd48751",
-                            "Separates the threat modeling process from external data sources and user inputs.",
-                            "TrustBoundary"
-                        ]
-                    }
-                }
-            ],
             "newlineSequences": [
                 "\r\n",
                 "\n"
@@ -157,75 +102,1515 @@
             "results": [
                 {
                     "message": {
-                      "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious YAML configuration data, potentially leading to unauthorized access or manipulation of the threat modeling process.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit a YAML configuration as if they were a legitimate user."
+                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious configuration data to the threat modeling process.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit data through the User Input Flow."
                     },
                     "kind": "review",
                     "level": "warning",
                     "locations": [
-                      {
-                        "id": -1,
-                        "logicalLocations": [
-                          {
-                            "index": 0,
-                            "parentIndex": -1
-                          }
-                        ],
-                        "physicalLocation": {
-                          "artifactLocation": {
-                            "uri": "test_asset_name.test_repo_name"
-                          },
-                          "region": {
-                            "startLine": 1,
-                            "startColumn": 1
-                          }
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
                         }
-                      }
                     ],
+                    "partialFingerprints": {
+                        "threat_model_id": "ed5b840a-4fdf-4a2b-bd03-b0e2f5d8129b"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
-                    "ruleIndex": 0,
-                    "properties": {
-                        "security-severity": "9.0"
-                      },
-                    "partialFingerprints": {
-                          "threat_model_id": "1c019809-376a-440e-9b74-d22b0d669e4e"
-                    }
+                    "ruleIndex": 0
                 },
-                 {
+                {
                     "message": {
-                      "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious YAML configuration data, potentially leading to unauthorized access or manipulation of the threat modeling process.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit a YAML configuration as if they were a legitimate user."
+                        "text": "Tampering with User Input Data\n\tAn attacker modifies the configuration data sent by the user to manipulate the threat modeling process outcomes.\n\nAttack Vector\n\tAn attacker intercepts the User Input Flow and alters the configuration data before it reaches the Threat Modeling Process."
                     },
                     "kind": "review",
                     "level": "warning",
                     "locations": [
-                      {
-                        "id": -1,
-                        "logicalLocations": [
-                          {
-                            "index": 0,
-                            "parentIndex": -1
-                          }
-                        ],
-                        "physicalLocation": {
-                          "artifactLocation": {
-                            "uri": "test_asset_name.test_repo_name"
-                          },
-                          "region": {
-                            "startLine": 1,
-                            "startColumn": 1
-                          }
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
                         }
-                      }
                     ],
+                    "partialFingerprints": {
+                        "threat_model_id": "374ed84a-562f-4330-a4d0-afe4e781fd3b"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Repudiation of User Actions\n\tA user denies having submitted malicious configuration data, leading to challenges in accountability and traceability.\n\nAttack Vector\n\tWithout proper logging, a user can claim they did not submit certain data, making it difficult to trace malicious actions back to them."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "fbe49ebf-359c-48a7-8fa5-dcc3c3046bf4"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-REPUDIATION",
+                    "ruleIndex": 2
+                },
+                {
+                    "message": {
+                        "text": "Information Disclosure of Configuration Data\n\tSensitive configuration data submitted by users may be exposed to unauthorized parties due to insufficient access controls.\n\nAttack Vector\n\tIf the User Input Flow is not properly secured, an attacker could gain access to sensitive configuration data through vulnerabilities in the application."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "8872aa27-7396-4f65-acf6-0a7dc4fd4933"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-INFO_DISCLOSURE",
+                    "ruleIndex": 3
+                },
+                {
+                    "message": {
+                        "text": "Denial of Service via User Input Flooding\n\tAn attacker floods the system with excessive user input requests, overwhelming the threat modeling process and causing service disruption.\n\nAttack Vector\n\tAn attacker scripts automated requests to the User Input Flow, causing resource exhaustion in the Threat Modeling Process."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "fe7544ff-a4ef-42d1-a275-ed750f1f6ed2"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-DOS",
+                    "ruleIndex": 4
+                },
+                {
+                    "message": {
+                        "text": "Elevation of Privilege through Misconfigured User Roles\n\tA user exploits misconfigurations in user roles or permissions to gain unauthorized access to sensitive functionalities within the threat modeling process.\n\nAttack Vector\n\tAn attacker manipulates their role or exploits a vulnerability in the application to gain higher privileges than intended."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "a22dcaf4-9f85-4c17-ac9b-433abce07166"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
+                    "ruleIndex": 5
+                },
+                {
+                    "message": {
+                        "text": "Unauthorized Access to Threat Model Generator\n\tAn attacker could exploit the lack of authentication to access the Threat Model Generator service, potentially submitting malicious requests to generate harmful threat models or manipulate existing ones.\n\nAttack Vector\n\tAn attacker sends a request to the Threat Model Generator without any authentication, impersonating a legitimate user."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "ff416790-b075-4dd1-bc84-ffda1c78bc77"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
-                    "ruleIndex": 0,
-                    "properties": {
-                        "security-severity": "9.0"
-                      },
+                    "ruleIndex": 0
+                },
+                {
+                    "message": {
+                        "text": "Tampering with Model Generation Requests\n\tAn attacker could intercept and modify the Model Generation Request data sent from the Threat Model Generator to the Threat Modeling Process, leading to the generation of incorrect or malicious threat models.\n\nAttack Vector\n\tAn attacker uses a man-in-the-middle attack to intercept and alter the data in the Model Generation Request before it reaches the Threat Modeling Process."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
                     "partialFingerprints": {
-                          "threat_model_id": "1c019809-376a-440e-9b74-d22b0d669e4f"
-                    }
+                        "threat_model_id": "6e825eb4-e564-4f55-9cf8-d6a1715dde2c"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Repudiation of Model Generation Requests\n\tUsers may deny having submitted a request for model generation if there is insufficient logging, making it difficult to trace back actions and hold users accountable for their requests.\n\nAttack Vector\n\tA user submits a Model Generation Request but later claims they did not submit it, leading to disputes over generated reports."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "eb0c9844-d753-453b-a812-4cbcbbac29e5"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-REPUDIATION",
+                    "ruleIndex": 2
+                },
+                {
+                    "message": {
+                        "text": "Information Disclosure of Generated Reports\n\tThe Generated Reports Store may be vulnerable to unauthorized access, allowing attackers to retrieve sensitive threat model reports that contain confidential information.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in access controls to gain unauthorized access to the Generated Reports Store and download sensitive reports."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "e450a78b-7033-4baf-8704-7c4d2bdd22c4"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-INFO_DISCLOSURE",
+                    "ruleIndex": 3
+                },
+                {
+                    "message": {
+                        "text": "Denial of Service on Threat Modeling Process\n\tAn attacker could flood the Threat Modeling Process with excessive requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tAn attacker sends a large number of Model Generation Requests in a short period, overwhelming the system's resources."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "0ee2d279-2b51-451d-98b9-c81250e5f5dc"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-DOS",
+                    "ruleIndex": 4
+                },
+                {
+                    "message": {
+                        "text": "Elevation of Privilege through Misconfigured Data Flows\n\tIf data flows between components are not properly secured, an attacker could exploit this to gain elevated privileges within the system, allowing them to perform unauthorized actions.\n\nAttack Vector\n\tAn attacker manipulates data inputs or configurations in a way that grants them higher privileges than intended within the Threat Modeling Process."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "715297f7-eed8-4979-99a2-7c668adc17b7"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
+                    "ruleIndex": 5
+                },
+                {
+                    "message": {
+                        "text": "Unauthorized User Access\n\tAn attacker could impersonate a legitimate user to submit malicious configuration data or asset details, leading to the generation of compromised threat model reports.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit data through the User Input Flow."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "abcb07fa-0008-437d-86e6-6f083ad555bb"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-SPOOFING",
+                    "ruleIndex": 0
+                },
+                {
+                    "message": {
+                        "text": "Malicious Configuration Data Submission\n\tAn attacker submits malicious configuration data that alters the behavior of the threat modeling process, potentially leading to incorrect or harmful threat model reports.\n\nAttack Vector\n\tAn attacker crafts a malicious configuration file and submits it through the User Input Flow, manipulating the output report generation."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "7e1ed37a-cfbb-4e94-bc4a-572b454c65eb"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Inadequate Logging of User Actions\n\tThe system may not log user actions adequately, allowing an attacker to deny their actions after submitting malicious data, leading to potential exploitation without accountability.\n\nAttack Vector\n\tAn attacker submits malicious input and later claims they did not perform the action due to lack of sufficient logging."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "a4946f5b-e164-45b9-bbf4-d11b121c4dd5"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-REPUDIATION",
+                    "ruleIndex": 2
+                },
+                {
+                    "message": {
+                        "text": "Exposure of Sensitive Report Data\n\tGenerated threat model reports may contain sensitive information that could be exposed if access controls on the Generated Reports Store are insufficient.\n\nAttack Vector\n\tAn attacker exploits weak access controls to retrieve sensitive Markdown reports from the Generated Reports Store."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "3e1bda07-6816-4425-ab4d-90a79ccbdd64"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-INFO_DISCLOSURE",
+                    "ruleIndex": 3
+                },
+                {
+                    "message": {
+                        "text": "Denial of Service via Malicious Input\n\tAn attacker could flood the system with excessive or malformed requests through the User Input Flow, causing the threat modeling process to become unresponsive.\n\nAttack Vector\n\tAn attacker sends a high volume of requests or malformed data to the User Input Flow, overwhelming the system's processing capabilities."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "b0fde0ff-87ee-4b15-a4b5-25c91dfa6540"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-DOS",
+                    "ruleIndex": 4
+                },
+                {
+                    "message": {
+                        "text": "Privilege Escalation through Misconfigured Access Controls\n\tIf access controls are misconfigured, an attacker could gain unauthorized access to administrative functions within the threat modeling process.\n\nAttack Vector\n\tAn attacker exploits misconfigured roles or permissions to gain elevated access to the threat modeling process functionalities."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "cad40b61-21bc-4e65-93d0-a163445f861f"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
+                    "ruleIndex": 5
+                },
+                {
+                    "message": {
+                        "text": "Unauthorized Access to Generated Reports\n\tAn attacker could exploit the lack of authentication to access the Generated Reports Store and retrieve sensitive threat model reports, which are classified as confidential.\n\nAttack Vector\n\tAn attacker accesses the Generated Reports Store directly without any authentication, potentially using automated scripts to enumerate available reports."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "8b356fb4-94f5-4628-b03a-d11cbfef46fc"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-SPOOFING",
+                    "ruleIndex": 0
+                },
+                {
+                    "message": {
+                        "text": "Tampering with Generated Reports\n\tAn attacker could manipulate the Markdown reports stored in the Generated Reports Store, altering the content of threat model reports that users access.\n\nAttack Vector\n\tAn attacker gains unauthorized access to the Generated Reports Store and modifies the Markdown files directly, potentially using file system vulnerabilities or exploiting weak access controls."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "2bf3b3e0-7b44-4557-91b3-208fca603616"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Repudiation of Report Generation\n\tUsers may deny having generated a specific threat model report if there is insufficient logging of user actions, leading to disputes about report authenticity.\n\nAttack Vector\n\tWithout proper logging mechanisms, a user can claim they did not generate a report, making it difficult to trace actions back to them."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "ade2d06f-6e5e-4840-a152-81b0fc18b6f8"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-REPUDIATION",
+                    "ruleIndex": 2
+                },
+                {
+                    "message": {
+                        "text": "Information Disclosure of Sensitive Data\n\tSensitive information contained within the Markdown reports could be exposed if the Generated Reports Store is improperly configured or lacks adequate access controls.\n\nAttack Vector\n\tAn attacker exploits misconfigured permissions on the Generated Reports Store, allowing them to list and read confidential reports."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "8d4c1a9a-3d30-497e-ae2a-129ee7501f6f"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-INFO_DISCLOSURE",
+                    "ruleIndex": 3
+                },
+                {
+                    "message": {
+                        "text": "Denial of Service on Report Generation\n\tAn attacker could flood the threat modeling process with excessive requests, causing it to become unresponsive and unable to generate reports.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the Threat Modeling Process, overwhelming its resources and preventing legitimate users from generating reports."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "4bb38553-f676-48e0-8ebb-b522dea200d9"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-DOS",
+                    "ruleIndex": 4
+                },
+                {
+                    "message": {
+                        "text": "Elevation of Privilege through Misconfigured Access Controls\n\tAn attacker could exploit weak access controls in the Generated Reports Store to gain elevated privileges, allowing them to perform unauthorized actions.\n\nAttack Vector\n\tAn attacker discovers that certain roles have excessive permissions on the Generated Reports Store and uses this to gain unauthorized access or modify reports."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "7fecd2c7-16ee-4da9-a6f7-e51a00d1c998"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
+                    "ruleIndex": 5
+                },
+                {
+                    "message": {
+                        "text": "User Spoofing via Input Manipulation\n\tAn attacker could impersonate a legitimate user by crafting malicious input data that bypasses the User Interaction Boundary, potentially leading to unauthorized access or actions within the system.\n\nAttack Vector\n\tAn attacker submits crafted input data through the user interface, exploiting the lack of authentication to impersonate a legitimate user."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "a56bf634-6518-4e40-a16c-734a4674b4c6"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-SPOOFING",
+                    "ruleIndex": 0
+                },
+                {
+                    "message": {
+                        "text": "Tampering with User Input Data\n\tAn attacker could modify the configuration data sent from the user to the threat modeling process, leading to incorrect threat model generation or unauthorized changes in the output.\n\nAttack Vector\n\tAn attacker intercepts and alters the data flow from the user to the threat modeling process, changing configuration parameters or asset details."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "57054e97-5119-499b-b2b0-3c1c32d2c2dd"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Repudiation of User Actions\n\tUsers may deny having submitted certain inputs or requests, especially if there is inadequate logging of user actions, making it difficult to trace back malicious activities.\n\nAttack Vector\n\tA user submits malicious input and later denies having done so, exploiting the lack of proper logging mechanisms."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "726823f0-3703-42aa-8712-8a332dda6725"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-REPUDIATION",
+                    "ruleIndex": 2
+                },
+                {
+                    "message": {
+                        "text": "Information Disclosure through User Input\n\tSensitive information could be disclosed if user inputs are not properly sanitized before being processed or logged, potentially exposing confidential data.\n\nAttack Vector\n\tAn attacker submits input containing sensitive information that is then logged or processed without proper sanitization, leading to exposure."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "00cb6967-a02f-43cd-8e81-58a72a752345"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-INFO_DISCLOSURE",
+                    "ruleIndex": 3
+                },
+                {
+                    "message": {
+                        "text": "Denial of Service via Input Flooding\n\tAn attacker could flood the system with excessive input requests through the User Interaction Boundary, overwhelming the threat modeling process and causing service disruption.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the user interface, consuming resources and preventing legitimate users from accessing the service."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "9216a67a-de0c-4ccf-b8c5-e45ff859d16d"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-DOS",
+                    "ruleIndex": 4
+                },
+                {
+                    "message": {
+                        "text": "Elevation of Privilege via Misconfigured Inputs\n\tAn attacker could exploit misconfigured input parameters to gain elevated privileges within the threat modeling process, allowing unauthorized access to sensitive functionalities.\n\nAttack Vector\n\tAn attacker crafts input that manipulates the processing logic of the threat modeling process, granting them unauthorized access or capabilities."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "e4b04313-5a90-4019-8058-f4f1af7e4b08"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
+                    "ruleIndex": 5
+                },
+                {
+                    "message": {
+                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious input data to the threat modeling process, potentially leading to unauthorized access or manipulation of threat model reports.\n\nAttack Vector\n\tThe attacker uses social engineering techniques to obtain user credentials or exploits a lack of authentication to submit data directly to the 'User Input Flow'."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "511ca7dd-e1c3-4fef-8546-ec764e257721"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-SPOOFING",
+                    "ruleIndex": 0
+                },
+                {
+                    "message": {
+                        "text": "Tampering with User Input\n\tAn attacker modifies the configuration data submitted by a user to the threat modeling process, which could lead to incorrect threat model generation.\n\nAttack Vector\n\tThe attacker intercepts the 'User Input Flow' and alters the configuration data before it reaches the threat modeling process."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "a913390c-05ff-47e8-a2ae-9c3670572d1a"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Repudiation of Threat Model Requests\n\tA user denies having submitted a request for a threat model generation, which could lead to disputes regarding accountability and responsibility.\n\nAttack Vector\n\tWithout proper logging, a user can claim they did not submit a request, making it difficult to trace actions back to them."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "9ce2df6f-7cc8-41c5-beea-fb91b04da566"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-REPUDIATION",
+                    "ruleIndex": 2
+                },
+                {
+                    "message": {
+                        "text": "Information Disclosure of Generated Reports\n\tUnauthorized users gain access to confidential threat model reports stored in the Generated Reports Store, leading to potential leaks of sensitive information.\n\nAttack Vector\n\tAn attacker exploits weak access controls on the Generated Reports Store to retrieve reports without authorization."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "2962ee67-710e-4031-a459-08f759e0a270"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-INFO_DISCLOSURE",
+                    "ruleIndex": 3
+                },
+                {
+                    "message": {
+                        "text": "Denial of Service on Report Generation\n\tAn attacker floods the threat modeling process with excessive requests, causing legitimate requests to be delayed or denied.\n\nAttack Vector\n\tThe attacker sends numerous 'Model Generation Request' messages to overwhelm the system's processing capabilities."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "01f83122-a722-4adb-bdd8-07214cd7c390"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-DOS",
+                    "ruleIndex": 4
+                },
+                {
+                    "message": {
+                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker gains elevated privileges by manipulating configuration data submitted during the threat modeling process, allowing them to generate unauthorized reports.\n\nAttack Vector\n\tThe attacker submits specially crafted configuration data that exploits vulnerabilities in the threat modeling process, granting them higher access levels."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "b8cb20e9-4b19-4a91-a41b-4b54e80d5bd9"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
+                    "ruleIndex": 5
+                },
+                {
+                    "message": {
+                        "text": "Unauthorized Access to Threat Model Generation\n\tAn attacker could exploit the lack of authentication to access the threat model generation service, potentially leading to unauthorized generation of threat models.\n\nAttack Vector\n\tAn attacker sends requests to the threat model generator service without any authentication, impersonating a legitimate user."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "33ba7038-f996-48bb-92a5-3478dcdfe747"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-SPOOFING",
+                    "ruleIndex": 0
+                },
+                {
+                    "message": {
+                        "text": "Tampering with User Input Data\n\tAn attacker could manipulate the configuration data sent from the user to the threat modeling process, leading to incorrect or malicious threat models being generated.\n\nAttack Vector\n\tAn attacker intercepts and modifies the 'User Input Flow' data before it reaches the threat modeling process."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "ee50d2be-5a43-412c-b188-057821fdbcdb"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Repudiation of Threat Model Requests\n\tUsers may deny having submitted a request for a threat model generation, leading to disputes and lack of accountability.\n\nAttack Vector\n\tWithout proper logging, users can claim they did not submit a request, making it difficult to trace actions back to them."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "4a0d545f-62a6-40cf-a5c8-1be9795c3f17"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-REPUDIATION",
+                    "ruleIndex": 2
+                },
+                {
+                    "message": {
+                        "text": "Information Disclosure of Generated Reports\n\tGenerated threat model reports may contain sensitive information that could be exposed if access controls are not properly enforced on the Generated Reports Store.\n\nAttack Vector\n\tAn unauthorized user accesses the reports stored in the Generated Reports Store due to insufficient access controls."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "9d79f56d-4aa0-47f2-af94-6110f067feb2"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-INFO_DISCLOSURE",
+                    "ruleIndex": 3
+                },
+                {
+                    "message": {
+                        "text": "Denial of Service on Threat Model Generation Service\n\tAn attacker could flood the threat model generator service with requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the threat model generator service, overwhelming its capacity."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "2e704239-d138-4a34-9a8a-1c3543129076"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-DOS",
+                    "ruleIndex": 4
+                },
+                {
+                    "message": {
+                        "text": "Elevation of Privilege through Misconfigured Access Controls\n\tIf access controls are misconfigured, an attacker could gain elevated privileges within the threat modeling process, allowing them to generate unauthorized reports or modify configurations.\n\nAttack Vector\n\tAn attacker exploits a vulnerability in access control settings to gain higher privileges than intended within the threat modeling process."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "78c7c5d6-97b2-45c3-8f7e-2511e254eab8"
+                    },
+                    "properties": {
+                        "tags": [
+                            "security-severity"
+                        ]
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
+                    "ruleIndex": 5
                 }
             ]
         }
