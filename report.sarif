@@ -174,8 +174,8 @@
                             "uri": "core/agents/threat_model_agent.py"
                           },
                           "region": {
-                            "startLine": 42,
-                            "startColumn": 1
+                            "startLine": 0,
+                            "startColumn": 0
                           }
                         }
                       }
