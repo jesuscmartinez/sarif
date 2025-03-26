@@ -158,14 +158,6 @@
                     "message": {
                         "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious YAML configuration data, potentially leading to unauthorized access or manipulation of the threat modeling process.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit a YAML configuration as if they were a legitimate user."
                     },
-                    "fixes": [
-                        {
-                            "artifactChanges": [],
-                            "description": {
-                                "text": "Implement strong authentication mechanisms (e.g., OAuth, SAML) to verify user identities before allowing access to the system."
-                            }
-                        }
-                    ],
                     "kind": "review",
                     "level": "warning",
                     "locations": [
@@ -187,14 +179,6 @@
                     "message": {
                         "text": "Tampering with User Input\n\tAn attacker modifies the YAML configuration data submitted by a legitimate user, which could lead to incorrect threat model reports or system behavior.\n\nAttack Vector\n\tAn attacker intercepts the data flow from the user to the threat modeling process and alters the YAML configuration before it is processed."
                     },
-                    "fixes": [
-                        {
-                            "artifactChanges": [],
-                            "description": {
-                                "text": "Use HTTPS to encrypt data in transit and implement input validation to ensure that only valid YAML configurations are accepted."
-                            }
-                        }
-                    ],
                     "kind": "review",
                     "level": "warning",
                     "locations": [
@@ -216,14 +200,6 @@
                     "message": {
                         "text": "Repudiation of User Actions\n\tA user denies having submitted a malicious YAML configuration, leading to challenges in accountability and traceability of actions taken within the system.\n\nAttack Vector\n\tWithout proper logging mechanisms, a user can claim they did not submit a specific configuration, making it difficult to trace malicious actions back to them."
                     },
-                    "fixes": [
-                        {
-                            "artifactChanges": [],
-                            "description": {
-                                "text": "Implement comprehensive logging of user actions and ensure logs are immutable and securely stored."
-                            }
-                        }
-                    ],
                     "kind": "review",
                     "level": "warning",
                     "locations": [
