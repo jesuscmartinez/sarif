@@ -187,6 +187,9 @@
                     "properties": {
                         "security-severity": "9.0"
                       }
+                    "partialFingerprints": {
+                          "threat_model_id": "1c019809-376a-440e-9b74-d22b0d669e4e"
+                    }
                 }
             ]
         }
