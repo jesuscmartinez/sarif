@@ -88,7 +88,7 @@
             "results": [
                 {
                     "message": {
-                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious configurations to the threat modeling process.\n\nAttack Vector\n\tAn attacker uses stolen credentials or session hijacking techniques to submit a threat model configuration as if they were a legitimate user."
+                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious threat model configurations, potentially leading to unauthorized access or manipulation of threat reports.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit data through the User Input Flow."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -111,7 +111,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "c75f20f2-ec39-41e2-983b-8b84f03c538a"
+                        "threat_model_id": "e781e53c-e127-4999-9bf8-350c113c8787"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
@@ -119,7 +122,7 @@
                 },
                 {
                     "message": {
-                        "text": "Tampering with User Input\n\tAn attacker modifies the threat model configuration data before it reaches the threat modeling process, potentially leading to incorrect or harmful outputs.\n\nAttack Vector\n\tAn attacker intercepts the User Input Flow and alters the configuration data being sent to the Threat Modeling Process."
+                        "text": "Tampering with User Input\n\tAn attacker modifies the threat model configuration data before it reaches the Threat Model Generation Process, potentially altering the generated reports.\n\nAttack Vector\n\tAn attacker intercepts the User Input Flow and alters the configuration data using a man-in-the-middle attack or by exploiting insecure transmission protocols."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -142,7 +145,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "23c93259-994c-4803-a8eb-c4e11f98f664"
+                        "threat_model_id": "0f346be4-d668-4d67-9e16-fba100cc01fd"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-TAMPERING",
@@ -150,7 +156,7 @@
                 },
                 {
                     "message": {
-                        "text": "Repudiation of User Actions\n\tA user denies having submitted a malicious configuration, leading to challenges in accountability and traceability.\n\nAttack Vector\n\tWithout proper logging, a user can claim they did not submit a specific threat model configuration, making it difficult to trace malicious actions."
+                        "text": "Repudiation of User Actions\n\tA user denies having submitted a threat model configuration, leading to challenges in accountability and audit trails.\n\nAttack Vector\n\tWithout proper logging mechanisms, users can claim they did not submit certain configurations, making it difficult to trace actions back to them."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -173,7 +179,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "86ed794a-648e-4fd3-8c69-46f1ab4c31f6"
+                        "threat_model_id": "1a3bb04c-4e6f-48fc-9e90-053aed72c948"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
@@ -181,7 +190,7 @@
                 },
                 {
                     "message": {
-                        "text": "Information Disclosure of Configuration Data\n\tSensitive configuration data is exposed to unauthorized users, potentially leading to exploitation of the threat modeling process.\n\nAttack Vector\n\tInadequate access controls on the Configuration Store allow unauthorized users to retrieve sensitive configuration settings."
+                        "text": "Information Disclosure of Threat Model Reports\n\tSensitive threat model reports may be exposed to unauthorized users due to insufficient access controls or vulnerabilities in the application.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the application to access generated threat model reports that should be confidential."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -204,7 +213,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "192d8bce-e80e-4dcd-ba04-9d9ed88aefe1"
+                        "threat_model_id": "ecfab25d-13a1-4daf-9d0a-83e090f1d468"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-INFO_DISCLOSURE",
@@ -212,7 +224,7 @@
                 },
                 {
                     "message": {
-                        "text": "Denial of Service on Threat Modeling Process\n\tAn attacker floods the Threat Modeling Process with excessive requests, causing it to become unresponsive or slow.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the Threat Modeling Process, overwhelming its capacity and leading to service disruption."
+                        "text": "Denial of Service on Threat Model Generation Process\n\tAn attacker floods the Threat Model Generation Process with excessive requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tAn attacker uses automated scripts to send numerous requests to the Threat Model Generation Process, overwhelming its capacity."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -235,7 +247,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "5c272c25-7234-4fd9-829b-204fb9bfe5b2"
+                        "threat_model_id": "33baed3b-2720-4fdb-9ab7-940d6f9cc3e7"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-DOS",
@@ -243,7 +258,7 @@
                 },
                 {
                     "message": {
-                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker gains unauthorized access to elevated privileges by manipulating configuration settings in the threat modeling process.\n\nAttack Vector\n\tAn attacker submits a specially crafted configuration that exploits vulnerabilities in the Threat Modeling Process, allowing them to execute unauthorized actions."
+                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker gains unauthorized access to elevated functionalities by manipulating configuration settings in the Configuration Store.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the Configuration Store to modify configuration settings, granting themselves higher privileges than intended."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -266,7 +281,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "87ff0a7e-9e8c-440c-904c-20caf4009374"
+                        "threat_model_id": "2b76e46f-e6fb-435d-ae83-dd372ea84097"
+                    },
+                    "properties": {
+                        "security-severity": 9.5
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
@@ -274,7 +292,7 @@
                 },
                 {
                     "message": {
-                        "text": "Unauthorized Access to Configuration Data\n\tAn attacker could exploit the lack of authentication in the Repo Data Flow Agent to gain unauthorized access to the configuration data, potentially altering repository processing settings.\n\nAttack Vector\n\tAn attacker sends requests to the Repo Data Flow Agent without proper authentication, allowing them to access or modify configuration data."
+                        "text": "Unauthorized Access to Threat Model Data Agent\n\tAn attacker could impersonate a legitimate user to gain unauthorized access to the Threat Model Data Agent, potentially leading to the generation of false threat data.\n\nAttack Vector\n\tAn attacker exploits the lack of authentication in the system to send requests to the Threat Model Data Agent, masquerading as a legitimate user."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -297,7 +315,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "7ee14079-76ac-4f9d-ac6c-501b23bc2542"
+                        "threat_model_id": "fc197c39-cc8c-494a-a467-8d0b9ad5398c"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
@@ -305,7 +326,7 @@
                 },
                 {
                     "message": {
-                        "text": "Tampering with Configuration Data\n\tAn attacker could intercept and modify the configuration data being sent from the Repo Data Flow Agent to the processing components, leading to incorrect processing of repository data.\n\nAttack Vector\n\tAn attacker uses a man-in-the-middle attack to intercept the Configuration Flow and alters the configuration data before it reaches the processing component."
+                        "text": "Manipulation of Threat Data\n\tAn attacker could tamper with the data being sent from the Threat Model Data Agent to the Threat Model Generation Process, altering the threat models generated.\n\nAttack Vector\n\tAn attacker intercepts the data flow between the Threat Model Data Agent and the Threat Model Generation Process, modifying the threat data before it is processed."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -328,7 +349,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "87510d4f-3b03-4f7d-8408-b5bb753c7e0c"
+                        "threat_model_id": "5266e256-4de6-4ffe-b471-21042696db2e"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-TAMPERING",
@@ -336,7 +360,7 @@
                 },
                 {
                     "message": {
-                        "text": "Repudiation of Configuration Changes\n\tWithout proper logging, an attacker could deny making changes to the configuration data, making it difficult to trace unauthorized modifications back to them.\n\nAttack Vector\n\tAn attacker modifies configuration settings but does not leave any trace in logs, allowing them to deny their actions later."
+                        "text": "Repudiation of Threat Data Generation\n\tUsers may deny having submitted certain configurations or requests that led to specific threat models being generated, leading to accountability issues.\n\nAttack Vector\n\tWithout proper logging mechanisms, users can claim they did not submit certain configurations, making it difficult to trace back actions."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -359,7 +383,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "ee2bde5f-cbb3-406b-ab37-614ce101bf71"
+                        "threat_model_id": "a564e0ea-8ab7-42ea-bfdc-e1713fa26b49"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
@@ -367,7 +394,7 @@
                 },
                 {
                     "message": {
-                        "text": "Information Disclosure of Configuration Settings\n\tSensitive configuration settings may be exposed through improper access controls or logging mechanisms, allowing unauthorized users to view confidential information.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the Configuration Store to access sensitive configuration data that should be restricted."
+                        "text": "Exposure of Sensitive Configuration Settings\n\tSensitive configuration settings stored in the Configuration Store could be exposed to unauthorized users, leading to potential exploitation of the system.\n\nAttack Vector\n\tAn attacker gains access to the Configuration Store through an unprotected interface or by exploiting vulnerabilities in the application, allowing them to view sensitive configuration data."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -390,7 +417,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "01ac3303-3fb9-4bdc-903f-6d375d3e8821"
+                        "threat_model_id": "405a2748-558b-4529-82f0-a2078a6bca1c"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-INFO_DISCLOSURE",
@@ -398,7 +428,7 @@
                 },
                 {
                     "message": {
-                        "text": "Denial of Service on Configuration Flow\n\tAn attacker could flood the Repo Data Flow Agent with requests, overwhelming it and preventing legitimate users from accessing configuration services.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the Repo Data Flow Agent, causing it to become unresponsive or slow down significantly."
+                        "text": "Denial of Service on Threat Model Generation Process\n\tAn attacker could flood the Threat Model Generation Process with excessive requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the Threat Model Generation Process, overwhelming its capacity and causing legitimate requests to fail."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -421,7 +451,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "09b2c4f9-1155-4c1e-8c06-f0db60126e97"
+                        "threat_model_id": "682e5ed0-cef4-4039-884b-54a73fcaef16"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-DOS",
@@ -429,7 +462,7 @@
                 },
                 {
                     "message": {
-                        "text": "Elevation of Privilege through Misconfigured Access Controls\n\tIf access controls are not properly configured, an attacker could gain elevated privileges within the system, allowing them to perform unauthorized actions.\n\nAttack Vector\n\tAn attacker discovers misconfigured permissions that allow them to execute administrative functions without proper authorization."
+                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker could manipulate configuration settings in the Configuration Store to gain elevated privileges within the application.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the application to modify configuration settings that control access levels, allowing them to gain unauthorized privileges."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -452,7 +485,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "8ee7092f-b2ec-45e1-ba01-230d34e5e010"
+                        "threat_model_id": "0dd42341-d4ee-4873-8061-023de97ae8b8"
+                    },
+                    "properties": {
+                        "security-severity": 9.5
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
@@ -460,7 +496,7 @@
                 },
                 {
                     "message": {
-                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious threat model configurations, potentially leading to unauthorized access or manipulation of threat model reports.\n\nAttack Vector\n\tAn attacker gains access to the system by using stolen credentials or exploiting a lack of authentication, allowing them to submit malicious configurations through the User Input Flow."
+                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious threat model configurations, potentially leading to unauthorized access or manipulation of threat model reports.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit a threat model configuration as if they were a legitimate user."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -483,7 +519,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "06ccdb4a-496f-483b-b68e-2cbdab3bf778"
+                        "threat_model_id": "bf1e9d77-9290-4a9d-90b8-f81ece6666c8"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
@@ -491,7 +530,7 @@
                 },
                 {
                     "message": {
-                        "text": "Tampering with Configuration Data\n\tAn attacker modifies the threat model configuration data before it is processed, leading to incorrect or harmful threat model reports.\n\nAttack Vector\n\tAn attacker intercepts the User Input Flow and alters the configuration data being sent to the Threat Modeling Process, potentially using man-in-the-middle techniques."
+                        "text": "Tampering with User Input\n\tAn attacker modifies the threat model configuration data sent from the user to the application, potentially altering the generated threat model report.\n\nAttack Vector\n\tAn attacker intercepts the User Input Flow and alters the configuration data before it reaches the Threat Model Generation Process."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -514,7 +553,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "07bc090f-085f-44a8-867d-4758dd2e5b7d"
+                        "threat_model_id": "0181dd6e-4d5c-4194-9317-a178406b09d6"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-TAMPERING",
@@ -522,7 +564,7 @@
                 },
                 {
                     "message": {
-                        "text": "Repudiation of Configuration Submission\n\tA user submits a threat model configuration and later denies having done so, which can complicate accountability and auditing processes.\n\nAttack Vector\n\tWithout proper logging mechanisms, users can deny their actions after submitting configurations, making it difficult to trace back malicious activities."
+                        "text": "Tampering with Threat Data\n\tAn attacker modifies the threat data sent from the Threat Model Data Agent to the Threat Model Generation Process, which could lead to incorrect threat assessments.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the communication channel between the Threat Model Data Agent and the Threat Model Generation Process to alter the threat data."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -545,7 +587,44 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "f90aebab-963f-4cbc-975b-8855548d3408"
+                        "threat_model_id": "8fa7ebe2-f066-4968-8b20-fd6c42d762d2"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
+                    },
+                    "rank": -1.0,
+                    "ruleId": "STRIDE-TAMPERING",
+                    "ruleIndex": 1
+                },
+                {
+                    "message": {
+                        "text": "Repudiation of User Actions\n\tA user denies having submitted a malicious threat model configuration, leading to challenges in accountability and traceability of actions taken within the system.\n\nAttack Vector\n\tWithout proper logging mechanisms, users can claim they did not submit certain configurations, making it difficult to trace malicious activities."
+                    },
+                    "kind": "review",
+                    "level": "warning",
+                    "locations": [
+                        {
+                            "id": -1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "index": -1,
+                                    "uri": "Lets Threat Model.Lets Threat Model Core",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "byteOffset": -1,
+                                    "charOffset": -1,
+                                    "startColumn": 1,
+                                    "startLine": 1
+                                }
+                            }
+                        }
+                    ],
+                    "partialFingerprints": {
+                        "threat_model_id": "3cfa5d7b-2b91-4ca6-93ca-b2590b7ca44d"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
@@ -553,7 +632,7 @@
                 },
                 {
                     "message": {
-                        "text": "Information Disclosure of Threat Model Reports\n\tSensitive information contained in threat model reports is exposed to unauthorized users, potentially leading to data breaches or misuse of information.\n\nAttack Vector\n\tIf access controls are not properly enforced, unauthorized users may gain access to generated threat model reports through the application interface or API."
+                        "text": "Information Disclosure of Threat Model Reports\n\tSensitive information contained in generated threat model reports is exposed to unauthorized users, potentially leading to data leaks or misuse.\n\nAttack Vector\n\tAn attacker gains access to the output data of the Threat Model Generation Process without proper authorization, either through direct access or by exploiting vulnerabilities in the application."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -576,7 +655,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "4d5054db-6ff7-44a7-b291-1bd3049505e8"
+                        "threat_model_id": "6a20b08a-6f7f-4300-a66f-092295096c2f"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-INFO_DISCLOSURE",
@@ -584,7 +666,7 @@
                 },
                 {
                     "message": {
-                        "text": "Denial of Service on Threat Modeling Process\n\tAn attacker overwhelms the Threat Modeling Process with excessive requests, causing legitimate users to be unable to generate threat model reports.\n\nAttack Vector\n\tAn attacker uses automated scripts to flood the User Input Flow with requests, exhausting system resources and leading to service unavailability."
+                        "text": "Denial of Service on Threat Model Generation Process\n\tAn attacker overwhelms the Threat Model Generation Process with excessive requests, causing legitimate requests to be delayed or denied.\n\nAttack Vector\n\tAn attacker sends a flood of malicious requests to the User Input Flow, exhausting system resources and preventing legitimate users from generating threat models."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -607,7 +689,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "4a2dde65-bea1-4d54-9e4e-68fce589ed2c"
+                        "threat_model_id": "38cd1c9b-051b-436b-8144-0c4a24563825"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-DOS",
@@ -615,7 +700,7 @@
                 },
                 {
                     "message": {
-                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker exploits vulnerabilities in the configuration processing to gain elevated privileges within the application, allowing unauthorized actions.\n\nAttack Vector\n\tBy submitting specially crafted configuration data that exploits flaws in the processing logic, an attacker could gain access to administrative functions or sensitive data."
+                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker gains unauthorized access to elevated privileges by manipulating configuration settings stored in the Configuration Store.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the Configuration Store to modify access controls or settings that grant them higher privileges than intended."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -638,7 +723,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "fb1d557f-03ea-42aa-8453-3cefea4222da"
+                        "threat_model_id": "41331022-96b8-4f71-bf3d-977f5ef321fb"
+                    },
+                    "properties": {
+                        "security-severity": 9.5
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
@@ -646,7 +734,7 @@
                 },
                 {
                     "message": {
-                        "text": "Unauthorized Access to Repo Configuration Data\n\tAn attacker could exploit the lack of authentication to gain unauthorized access to the Repo Configuration Data being processed by the Repo Data Processing component. This could lead to manipulation of repository data processing configurations.\n\nAttack Vector\n\tAn attacker impersonates a legitimate user by sending requests to the Repo Data Processing component without proper authentication, allowing them to access and modify configuration data."
+                        "text": "Unauthorized Access to Configuration Store\n\tAn attacker could exploit the lack of authentication to gain unauthorized access to the Configuration Store, allowing them to retrieve or manipulate sensitive configuration settings.\n\nAttack Vector\n\tAn attacker sends requests to the Configuration Store without proper authentication, potentially using automated scripts to access configuration settings."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -669,7 +757,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "c1e6751b-137f-4441-a4ba-812155890af0"
+                        "threat_model_id": "c4879658-899a-4001-a629-ccbef8c295c0"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
@@ -677,7 +768,7 @@
                 },
                 {
                     "message": {
-                        "text": "Tampering with Processed Repo Data\n\tAn attacker could intercept and modify the Processed Repo Data during its flow from the Repo Data Processing component to the Threat Modeling Process, potentially altering threat model reports.\n\nAttack Vector\n\tAn attacker uses a man-in-the-middle attack to intercept the data flow between the Repo Data Processing and Threat Modeling Process components, modifying the data before it reaches its destination."
+                        "text": "Manipulation of Configuration Settings\n\tAn attacker could tamper with the configuration settings stored in the Configuration Store, leading to incorrect threat model generation or exposure of sensitive data.\n\nAttack Vector\n\tAn attacker gains unauthorized access to the Configuration Store and modifies configuration files or environment variables."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -700,7 +791,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "370ba1e2-dbd4-4734-bcaf-14662e625701"
+                        "threat_model_id": "3e131857-7141-44de-9ecf-54bea4e7a1fa"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-TAMPERING",
@@ -708,7 +802,7 @@
                 },
                 {
                     "message": {
-                        "text": "Repudiation of Configuration Changes\n\tUsers may deny having made changes to the Repo Configuration Data, leading to disputes over who is responsible for any issues that arise from those changes.\n\nAttack Vector\n\tWithout proper logging mechanisms in place, users can change configurations without leaving an audit trail, making it difficult to trace back actions."
+                        "text": "Inadequate Logging for Configuration Access\n\tThe system may not log access to the Configuration Store adequately, making it difficult to trace unauthorized access or changes, leading to potential repudiation.\n\nAttack Vector\n\tAn attacker accesses or modifies configuration settings without any logs being generated, allowing them to deny their actions later."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -731,7 +825,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "59708af1-01fe-41e1-adab-5e1c2806f14b"
+                        "threat_model_id": "8d20a8f8-0d94-488d-9a0b-a63f69562990"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
@@ -739,7 +836,7 @@
                 },
                 {
                     "message": {
-                        "text": "Information Disclosure of Sensitive Configuration Data\n\tSensitive configuration data may be exposed if proper access controls are not enforced on the Repo Configuration Data being processed.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the application to access unprotected endpoints that expose configuration data, leading to unauthorized disclosure of sensitive information."
+                        "text": "Exposure of Sensitive Configuration Data\n\tSensitive configuration data may be exposed during the data flow from the Configuration Store to the Threat Model Generation Process, leading to information disclosure.\n\nAttack Vector\n\tData flows from the Configuration Store to the Threat Model Generation Process may not be encrypted, allowing interception by unauthorized parties."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -762,7 +859,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "0335a220-76a0-4147-b180-e60e677d5b1c"
+                        "threat_model_id": "6e0e260f-31c9-4a9e-b0d6-a327fddacada"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-INFO_DISCLOSURE",
@@ -770,7 +870,7 @@
                 },
                 {
                     "message": {
-                        "text": "Denial of Service on Repo Data Processing\n\tAn attacker could flood the Repo Data Processing component with excessive requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tAn attacker sends a large volume of requests to the Repo Data Processing component, overwhelming its resources and causing it to crash or become unresponsive."
+                        "text": "Denial of Service on Data Flow Report Generation Process\n\tAn attacker could flood the Data Flow Report Generation Process with excessive requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the Data Flow Report Generation Process, overwhelming its capacity and causing legitimate requests to fail."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -793,7 +893,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "173bbcbc-1969-4160-a05e-e5e8f26d8af2"
+                        "threat_model_id": "80087417-0564-41ec-a030-2f66ff8b6581"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-DOS",
@@ -801,7 +904,7 @@
                 },
                 {
                     "message": {
-                        "text": "Elevation of Privilege via Misconfigured Access Controls\n\tAn attacker could exploit misconfigured access controls in the Repo Data Processing component to gain elevated privileges, allowing them to perform unauthorized actions.\n\nAttack Vector\n\tAn attacker discovers that certain endpoints in the Repo Data Processing component do not enforce proper authorization checks, allowing them to perform actions reserved for higher privilege users."
+                        "text": "Elevation of Privilege via Misconfigured Access Controls\n\tIf access controls are misconfigured, an attacker could gain elevated privileges within the system, allowing them to perform unauthorized actions.\n\nAttack Vector\n\tAn attacker exploits a vulnerability in the access control mechanisms of the Threat Model Generation Process, gaining unauthorized administrative privileges."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -824,7 +927,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "0da92676-c6f5-400a-b201-6f254384a7ae"
+                        "threat_model_id": "681ad7e2-5a6a-4db1-911f-df7c35724c0e"
+                    },
+                    "properties": {
+                        "security-severity": 9.5
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
@@ -832,7 +938,7 @@
                 },
                 {
                     "message": {
-                        "text": "Unauthorized Access to Configuration Store\n\tAn attacker could exploit the lack of authentication to gain unauthorized access to the Configuration Store, allowing them to read or modify sensitive configuration settings.\n\nAttack Vector\n\tAn attacker sends requests to the Configuration Store without any authentication, potentially using automated scripts to retrieve or alter configuration data."
+                        "text": "Unauthorized Access to Configuration Store\n\tAn attacker could exploit the lack of authentication to gain unauthorized access to the Configuration Store, allowing them to view or modify sensitive configuration settings.\n\nAttack Vector\n\tAn attacker sends requests to the Configuration Store without any authentication, potentially using automated tools to enumerate configuration settings."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -855,7 +961,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "e5e0c319-ca08-4e38-8ab0-bb8c1cea70bd"
+                        "threat_model_id": "02528fc4-b319-4df5-907a-0ca9e0e8d54d"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
@@ -863,7 +972,7 @@
                 },
                 {
                     "message": {
-                        "text": "Modification of Configuration Data\n\tAn attacker could tamper with the configuration data stored in the Configuration Store, leading to incorrect threat modeling results or system behavior.\n\nAttack Vector\n\tAn attacker gains unauthorized access to the Configuration Store and modifies configuration settings, which are then used by the Threat Modeling Process."
+                        "text": "Modification of Configuration Settings\n\tAn attacker could tamper with the configuration settings stored in the Configuration Store, leading to incorrect configurations being used in the threat modeling process.\n\nAttack Vector\n\tAn attacker gains unauthorized access to the Configuration Store and modifies the YAML configuration files or environment variables directly."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -886,7 +995,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "e263d441-3877-499c-be6a-2492eb81ab7b"
+                        "threat_model_id": "b58dfd4f-7eb2-4545-b8c7-785671d962b6"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-TAMPERING",
@@ -894,7 +1006,7 @@
                 },
                 {
                     "message": {
-                        "text": "Inadequate Logging of Configuration Changes\n\tThe Configuration Store may not log access or changes adequately, making it difficult to trace unauthorized modifications or access attempts.\n\nAttack Vector\n\tAn attacker modifies configuration settings without leaving a trace due to insufficient logging mechanisms, allowing them to deny their actions later."
+                        "text": "Inadequate Logging Leading to Repudiation\n\tThe Configuration Store may not have sufficient logging mechanisms in place, allowing users to deny actions they performed, such as modifying configurations.\n\nAttack Vector\n\tUsers can modify configuration settings without any logs being generated, making it difficult to trace changes back to specific users."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -917,7 +1029,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "7aa02763-9221-4680-a86c-218a28bfb1b7"
+                        "threat_model_id": "8543a29b-2f38-4a3b-af3e-f5b754b59b9f"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
@@ -925,7 +1040,7 @@
                 },
                 {
                     "message": {
-                        "text": "Exposure of Sensitive Configuration Data\n\tConfiguration data may be exposed during data flows, especially if not properly encrypted, leading to information disclosure of sensitive parameters.\n\nAttack Vector\n\tConfiguration data is transmitted in plaintext during the Configuration Retrieval Flow, allowing an attacker to intercept and read sensitive information."
+                        "text": "Exposure of Sensitive Configuration Data\n\tConfiguration settings may contain sensitive information that could be exposed if proper access controls are not enforced, leading to information disclosure.\n\nAttack Vector\n\tAn attacker accesses the Configuration Store and retrieves sensitive configuration settings that include API keys or database credentials."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -948,7 +1063,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "b60168a3-d4c9-4949-bace-ec6f39e91d51"
+                        "threat_model_id": "e6e23f67-50a4-4615-9c15-3fa3bcedf848"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-INFO_DISCLOSURE",
@@ -956,7 +1074,7 @@
                 },
                 {
                     "message": {
-                        "text": "Denial of Service on Configuration Store\n\tAn attacker could flood the Configuration Store with requests, causing it to become unresponsive and denying legitimate users access to configuration settings.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the Configuration Store, overwhelming its capacity and preventing legitimate access."
+                        "text": "Denial of Service on Configuration Retrieval Flow\n\tAn attacker could flood the Configuration Store with requests, causing a denial of service for legitimate users trying to retrieve configuration settings.\n\nAttack Vector\n\tAn attacker uses a script to send a high volume of requests to the Configuration Retrieval Flow, overwhelming the system and preventing legitimate access."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -979,7 +1097,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "880dd5fc-e3f6-4a7f-81d3-3954e57fdfaa"
+                        "threat_model_id": "52e4217c-c4ee-4a8a-a7ce-b2b6e9b45227"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-DOS",
@@ -987,7 +1108,7 @@
                 },
                 {
                     "message": {
-                        "text": "Elevation of Privilege via Misconfigured Settings\n\tAn attacker could exploit misconfigured settings in the Configuration Store to gain elevated privileges within the application.\n\nAttack Vector\n\tAn attacker modifies configuration settings that control user permissions, allowing them to gain unauthorized access to higher privilege levels within the application."
+                        "text": "Elevation of Privilege via Misconfigured Settings\n\tIf an attacker gains access to the Configuration Store, they may alter settings that grant them elevated privileges within the application.\n\nAttack Vector\n\tAn attacker modifies configuration settings that control user roles or permissions, allowing them to gain unauthorized access to higher privilege levels."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1010,7 +1131,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "1f003723-ba24-4b56-9871-d11d7d6f5f11"
+                        "threat_model_id": "a2343c84-64f1-4895-a61b-430a8048dc54"
+                    },
+                    "properties": {
+                        "security-severity": 9.5
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
@@ -1018,7 +1142,7 @@
                 },
                 {
                     "message": {
-                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to gain unauthorized access to the threat modeling process, potentially submitting malicious configurations.\n\nAttack Vector\n\tAn attacker uses stolen credentials or session hijacking techniques to access the system as a legitimate user."
+                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious configurations or requests to the system, potentially leading to unauthorized access or manipulation of threat model reports.\n\nAttack Vector\n\tAn attacker uses stolen credentials or exploits a lack of authentication to submit user input through the User Input Flow."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1041,7 +1165,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "9b778e5b-ff07-4d55-9ab6-3ca0c9473ed1"
+                        "threat_model_id": "caa21b5d-f611-4437-8054-d1fbc46e880d"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
@@ -1049,7 +1176,7 @@
                 },
                 {
                     "message": {
-                        "text": "Tampering with User Input\n\tAn attacker modifies the data sent from the user to the threat modeling process, potentially altering the threat model configuration.\n\nAttack Vector\n\tAn attacker intercepts and alters the data in transit between the user and the threat modeling process using techniques like man-in-the-middle (MitM) attacks."
+                        "text": "Tampering with User Input\n\tAn attacker modifies the data being sent from the user to the application, potentially altering threat model configurations or injecting malicious data.\n\nAttack Vector\n\tAn attacker intercepts and alters the User Input Flow using techniques such as man-in-the-middle attacks or client-side script injection."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1072,7 +1199,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "b23774b4-d1c3-43d6-89f8-aa9b5b92f822"
+                        "threat_model_id": "601ef66f-303a-4c96-84a6-a56c07e3fa61"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-TAMPERING",
@@ -1080,7 +1210,7 @@
                 },
                 {
                     "message": {
-                        "text": "Repudiation of User Actions\n\tA user denies having submitted a threat model configuration, leading to disputes over accountability and potential security breaches.\n\nAttack Vector\n\tWithout proper logging, a user can claim they did not submit a specific configuration, making it difficult to trace actions back to them."
+                        "text": "Repudiation of User Actions\n\tA user denies having submitted a specific threat model configuration, leading to challenges in accountability and traceability of actions taken within the system.\n\nAttack Vector\n\tWithout proper logging mechanisms, users can claim they did not perform certain actions, making it difficult to track changes or submissions."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1103,7 +1233,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "cc325404-b397-4872-9b77-60e9651054fa"
+                        "threat_model_id": "d5a39ad0-2604-428c-b141-2a98f2364003"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
@@ -1111,7 +1244,7 @@
                 },
                 {
                     "message": {
-                        "text": "Information Disclosure via User Input\n\tSensitive information from user inputs may be exposed due to insufficient validation or logging practices, leading to unauthorized access to confidential data.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the input handling process to extract sensitive information from error messages or logs."
+                        "text": "Information Disclosure via User Input\n\tSensitive information could be disclosed if user inputs are not properly handled, leading to exposure of confidential data in threat model reports.\n\nAttack Vector\n\tAn attacker submits inputs that trigger the application to expose sensitive data through error messages or improperly formatted outputs."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1134,7 +1267,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "4594eb36-3855-4029-8266-b893807a5850"
+                        "threat_model_id": "2e419531-1ea4-4cb9-a3ea-60c2bdffbe9e"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-INFO_DISCLOSURE",
@@ -1142,7 +1278,7 @@
                 },
                 {
                     "message": {
-                        "text": "Denial of Service on User Boundary\n\tAn attacker floods the user boundary with excessive requests, causing the system to become unresponsive and denying legitimate users access.\n\nAttack Vector\n\tAn attacker uses automated scripts to send a high volume of requests to the user boundary, overwhelming the system's resources."
+                        "text": "Denial of Service via User Input Flooding\n\tAn attacker floods the application with excessive user input requests, overwhelming the system and causing it to become unresponsive.\n\nAttack Vector\n\tAn attacker scripts automated requests to the User Input Flow, causing resource exhaustion on the server handling these requests."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1165,7 +1301,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "c0fa3445-b33c-4f55-a8c4-02b898009dc0"
+                        "threat_model_id": "f3ffde24-c010-4f76-9d2d-ce826dca45b1"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-DOS",
@@ -1173,7 +1312,7 @@
                 },
                 {
                     "message": {
-                        "text": "Elevation of Privilege through User Input Manipulation\n\tAn attacker exploits vulnerabilities in the user input handling process to gain elevated privileges within the system.\n\nAttack Vector\n\tAn attacker crafts malicious input that bypasses validation checks, allowing them to execute unauthorized commands or access restricted areas of the application."
+                        "text": "Elevation of Privilege through Misconfigured User Inputs\n\tAn attacker exploits vulnerabilities in the user input handling process to gain unauthorized access or privileges within the application.\n\nAttack Vector\n\tBy submitting specially crafted inputs that exploit flaws in the application logic, an attacker could gain elevated privileges beyond their intended access level."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1196,7 +1335,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "72f7fe64-a012-4ad3-b349-c42fb80ed4a1"
+                        "threat_model_id": "3984ea9f-cc46-4015-9682-7e4d90f625cf"
+                    },
+                    "properties": {
+                        "security-severity": 9.5
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
@@ -1204,7 +1346,7 @@
                 },
                 {
                     "message": {
-                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious threat model configurations, potentially leading to unauthorized access or manipulation of threat model reports.\n\nAttack Vector\n\tThe attacker uses a compromised or fake identity to interact with the system, bypassing authentication mechanisms due to the lack of authentication."
+                        "text": "User Spoofing\n\tAn attacker impersonates a legitimate user to submit malicious configurations for threat model generation.\n\nAttack Vector\n\tThe attacker uses a compromised or fake identity to access the application, submitting malicious data through the User Input Flow."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1227,7 +1369,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "fd10cf7e-d319-4357-9982-72fcd3f63723"
+                        "threat_model_id": "1f32b7e9-6ed1-401e-a11f-59973a1e0977"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-SPOOFING",
@@ -1235,7 +1380,7 @@
                 },
                 {
                     "message": {
-                        "text": "Tampering with User Input\n\tAn attacker modifies the threat model configuration data sent from the user to the Threat Modeling Process, potentially altering the output reports.\n\nAttack Vector\n\tThe attacker intercepts and alters the data flow (User Input Flow) from the user to the Threat Modeling Process, changing parameters in the configuration."
+                        "text": "Tampering with User Input\n\tAn attacker modifies the threat model configuration data sent from the user to the application, potentially leading to incorrect threat assessments.\n\nAttack Vector\n\tThe attacker intercepts the User Input Flow and alters the configuration data before it reaches the Threat Model Generation Process."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1258,7 +1403,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "26b2d9ad-584e-468d-a6cd-6cf2a074bb67"
+                        "threat_model_id": "f2f6dd2b-1573-436a-addf-848398a3668e"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-TAMPERING",
@@ -1266,7 +1414,7 @@
                 },
                 {
                     "message": {
-                        "text": "Repudiation of User Actions\n\tA user denies having submitted a threat model configuration, leading to disputes over actions taken within the system.\n\nAttack Vector\n\tWithout proper logging mechanisms, users can claim they did not submit certain configurations or actions, making it difficult to trace accountability."
+                        "text": "Repudiation of User Actions\n\tA user denies having submitted a malicious configuration, leading to challenges in accountability and traceability.\n\nAttack Vector\n\tWithout proper logging, a user can claim they did not submit a specific configuration, making it difficult to trace malicious actions."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1289,7 +1437,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "1af8d154-b2cc-41f9-b8eb-b8dc1f6f423e"
+                        "threat_model_id": "de949c55-6a7c-4c2c-99cc-5a5b0e436c1a"
+                    },
+                    "properties": {
+                        "security-severity": 5.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-REPUDIATION",
@@ -1297,7 +1448,7 @@
                 },
                 {
                     "message": {
-                        "text": "Information Disclosure of Configuration Data\n\tSensitive configuration data may be exposed to unauthorized users due to insufficient access controls on the Configuration Store.\n\nAttack Vector\n\tAn attacker exploits weak access controls to retrieve sensitive configuration settings stored in the Configuration Store."
+                        "text": "Information Disclosure of Configuration Settings\n\tSensitive configuration settings stored in the Configuration Store may be exposed to unauthorized users, leading to potential exploitation.\n\nAttack Vector\n\tAn attacker gains unauthorized access to the Configuration Store, either through exploitation of vulnerabilities or misconfigurations, allowing them to view sensitive settings."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1320,7 +1471,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "94978f93-ab16-48b3-879d-95412f5bf1d5"
+                        "threat_model_id": "310195e7-1774-4e79-b899-df2f3a53c96c"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-INFO_DISCLOSURE",
@@ -1328,7 +1482,7 @@
                 },
                 {
                     "message": {
-                        "text": "Denial of Service on Threat Modeling Process\n\tAn attacker floods the Threat Modeling Process with excessive requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tThe attacker sends a high volume of requests to the Threat Modeling Process, overwhelming its capacity and leading to service outages."
+                        "text": "Denial of Service on Threat Model Generation Process\n\tAn attacker floods the Threat Model Generation Process with excessive requests, causing it to become unresponsive.\n\nAttack Vector\n\tThe attacker sends a high volume of requests through the User Input Flow, overwhelming the process and preventing legitimate users from generating threat models."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1351,7 +1505,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "6573de58-62b6-46d6-83c1-058156590043"
+                        "threat_model_id": "dcb6f6f9-4802-48ee-876c-7dd0e54e3b1e"
+                    },
+                    "properties": {
+                        "security-severity": 8.0
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-DOS",
@@ -1359,7 +1516,7 @@
                 },
                 {
                     "message": {
-                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker gains elevated privileges by manipulating configuration settings that control access levels within the application.\n\nAttack Vector\n\tThe attacker modifies configuration data processed by the Repo Data Processing component, granting themselves unauthorized access or capabilities."
+                        "text": "Elevation of Privilege via Configuration Manipulation\n\tAn attacker exploits weaknesses in configuration settings to gain unauthorized access or privileges within the application.\n\nAttack Vector\n\tThe attacker modifies configuration settings in the Configuration Store to escalate their privileges within the application, potentially accessing restricted functionalities."
                     },
                     "kind": "review",
                     "level": "warning",
@@ -1382,193 +1539,10 @@
                         }
                     ],
                     "partialFingerprints": {
-                        "threat_model_id": "efa0c28e-8e82-41fe-afdc-c39134fd7368"
+                        "threat_model_id": "e46eedc3-cfa1-4502-830a-cee60d49d75f"
                     },
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
-                    "ruleIndex": 5
-                },
-                {
-                    "message": {
-                        "text": "Unauthorized Access to Configuration Store\n\tAn attacker could exploit the lack of authentication to gain unauthorized access to the Configuration Store, allowing them to view or modify sensitive configuration settings.\n\nAttack Vector\n\tAn attacker sends requests to the Configuration Store without proper authentication, potentially using automated scripts to access and manipulate data."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "index": -1,
-                                    "uri": "Lets Threat Model.Lets Threat Model Core",
-                                    "uriBaseId": "%SRCROOT%"
-                                },
-                                "region": {
-                                    "byteOffset": -1,
-                                    "charOffset": -1,
-                                    "startColumn": 1,
-                                    "startLine": 1
-                                }
-                            }
-                        }
-                    ],
-                    "partialFingerprints": {
-                        "threat_model_id": "ad87aff7-c75c-454d-ad18-824f7c9b7a68"
-                    },
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-SPOOFING",
-                    "ruleIndex": 0
-                },
-                {
-                    "message": {
-                        "text": "Tampering with Configuration Data\n\tAn attacker could manipulate the configuration data stored in the Configuration Store, leading to altered threat model reports or processing errors.\n\nAttack Vector\n\tAn attacker gains unauthorized access to the Configuration Store and modifies configuration settings, which are then used by the Threat Modeling Process."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "index": -1,
-                                    "uri": "Lets Threat Model.Lets Threat Model Core",
-                                    "uriBaseId": "%SRCROOT%"
-                                },
-                                "region": {
-                                    "byteOffset": -1,
-                                    "charOffset": -1,
-                                    "startColumn": 1,
-                                    "startLine": 1
-                                }
-                            }
-                        }
-                    ],
-                    "partialFingerprints": {
-                        "threat_model_id": "87377a9c-5893-4174-aae4-739031b9b5ff"
-                    },
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-TAMPERING",
-                    "ruleIndex": 1
-                },
-                {
-                    "message": {
-                        "text": "Repudiation of Configuration Changes\n\tUsers may deny having made changes to the configuration settings if there is inadequate logging, making it difficult to track who made changes and when.\n\nAttack Vector\n\tWithout proper logging mechanisms, a user modifies configuration settings and later denies making those changes, leading to disputes."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "index": -1,
-                                    "uri": "Lets Threat Model.Lets Threat Model Core",
-                                    "uriBaseId": "%SRCROOT%"
-                                },
-                                "region": {
-                                    "byteOffset": -1,
-                                    "charOffset": -1,
-                                    "startColumn": 1,
-                                    "startLine": 1
-                                }
-                            }
-                        }
-                    ],
-                    "partialFingerprints": {
-                        "threat_model_id": "71c9a22f-bdad-45d3-bca4-9482735078fb"
-                    },
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-REPUDIATION",
-                    "ruleIndex": 2
-                },
-                {
-                    "message": {
-                        "text": "Information Disclosure of Sensitive Configuration Data\n\tSensitive configuration data may be exposed due to improper access controls, allowing unauthorized users to view confidential information.\n\nAttack Vector\n\tAn attacker exploits vulnerabilities in the application to access the Configuration Store and retrieve sensitive configuration data."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "index": -1,
-                                    "uri": "Lets Threat Model.Lets Threat Model Core",
-                                    "uriBaseId": "%SRCROOT%"
-                                },
-                                "region": {
-                                    "byteOffset": -1,
-                                    "charOffset": -1,
-                                    "startColumn": 1,
-                                    "startLine": 1
-                                }
-                            }
-                        }
-                    ],
-                    "partialFingerprints": {
-                        "threat_model_id": "5c328fc6-7352-441c-b986-44999d44c488"
-                    },
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-INFO_DISCLOSURE",
-                    "ruleIndex": 3
-                },
-                {
-                    "message": {
-                        "text": "Denial of Service on Repo Data Processing\n\tAn attacker could flood the Repo Data Processing component with excessive requests, causing it to become unresponsive and denying service to legitimate users.\n\nAttack Vector\n\tAn attacker sends a high volume of requests to the Repo Data Processing component, overwhelming its resources and causing it to fail."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "index": -1,
-                                    "uri": "Lets Threat Model.Lets Threat Model Core",
-                                    "uriBaseId": "%SRCROOT%"
-                                },
-                                "region": {
-                                    "byteOffset": -1,
-                                    "charOffset": -1,
-                                    "startColumn": 1,
-                                    "startLine": 1
-                                }
-                            }
-                        }
-                    ],
-                    "partialFingerprints": {
-                        "threat_model_id": "9d8e3f7b-84ca-4f00-9b59-a7cc571aa513"
-                    },
-                    "rank": -1.0,
-                    "ruleId": "STRIDE-DOS",
-                    "ruleIndex": 4
-                },
-                {
-                    "message": {
-                        "text": "Elevation of Privilege through Misconfigured Access Controls\n\tIf access controls are misconfigured, an attacker could gain elevated privileges, allowing them to perform unauthorized actions within the application.\n\nAttack Vector\n\tAn attacker discovers a misconfiguration in access controls that allows them to execute administrative functions without proper authorization."
-                    },
-                    "kind": "review",
-                    "level": "warning",
-                    "locations": [
-                        {
-                            "id": -1,
-                            "physicalLocation": {
-                                "artifactLocation": {
-                                    "index": -1,
-                                    "uri": "Lets Threat Model.Lets Threat Model Core",
-                                    "uriBaseId": "%SRCROOT%"
-                                },
-                                "region": {
-                                    "byteOffset": -1,
-                                    "charOffset": -1,
-                                    "startColumn": 1,
-                                    "startLine": 1
-                                }
-                            }
-                        }
-                    ],
-                    "partialFingerprints": {
-                        "threat_model_id": "aa590929-a980-407d-a33b-acfb87970f0f"
+                    "properties": {
+                        "security-severity": 9.5
                     },
                     "rank": -1.0,
                     "ruleId": "STRIDE-ELEVATION_OF_PRIVG",
